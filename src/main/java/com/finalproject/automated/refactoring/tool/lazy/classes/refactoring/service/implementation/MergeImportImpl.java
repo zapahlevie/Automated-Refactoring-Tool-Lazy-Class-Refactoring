@@ -2,6 +2,7 @@ package com.finalproject.automated.refactoring.tool.lazy.classes.refactoring.ser
 
 import com.finalproject.automated.refactoring.tool.lazy.classes.refactoring.service.MergeImport;
 import com.finalproject.automated.refactoring.tool.model.ClassModel;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @since 12 May 2019
  */
 
+@Service
 public class MergeImportImpl implements MergeImport {
     @Override
     public String mergeImport(ClassModel targetClass, ClassModel lazyClass) {
