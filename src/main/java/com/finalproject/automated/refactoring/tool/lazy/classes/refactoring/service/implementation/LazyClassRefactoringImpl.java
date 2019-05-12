@@ -1,9 +1,11 @@
 package com.finalproject.automated.refactoring.tool.lazy.classes.refactoring.service.implementation;
 
 import com.finalproject.automated.refactoring.tool.lazy.classes.refactoring.service.LazyClassRefactoring;
+import com.finalproject.automated.refactoring.tool.lazy.classes.refactoring.service.MergeImport;
 import com.finalproject.automated.refactoring.tool.model.ClassModel;
 import com.finalproject.automated.refactoring.tool.model.MethodModel;
 import com.finalproject.automated.refactoring.tool.model.PropertyModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,17 +21,16 @@ import java.util.regex.Pattern;
 
 @Service
 public class LazyClassRefactoringImpl implements LazyClassRefactoring {
+
+    @Autowired
+    private MergeImport mergeImport;
+
     @Override
     public String refactor(ClassModel targetClass, ClassModel lazyClass) {
         boolean isMainClass = false;
 
         String refactoredString = "";
-        for (String imp : targetClass.getImports()){
-            refactoredString+=imp+";\n";
-        }
-        for (String imp : lazyClass.getImports()){
-            refactoredString+=imp+";\n";
-        }
+        refactoredString += mergeImport.mergeImport(targetClass, lazyClass);
         for (String key : targetClass.getKeywords()){
             refactoredString+="\n"+key+" ";
         }
