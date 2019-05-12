@@ -44,6 +44,6 @@ public class MergeFieldImpl implements MergeField {
         for (String attr : targetClass.getAttributes()){
             refactoredString.append("\t").append(attr).append(";\n");
         }
-        return null;
+        return refactoredString.toString();
     }
 }

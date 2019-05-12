@@ -92,6 +92,6 @@ public class MergeMethodImpl implements MergeMethod {
             }
             refactoredString.append(body).append("\t}\n\n");
         }
-        return null;
+        return refactoredString.toString();
     }
 }
