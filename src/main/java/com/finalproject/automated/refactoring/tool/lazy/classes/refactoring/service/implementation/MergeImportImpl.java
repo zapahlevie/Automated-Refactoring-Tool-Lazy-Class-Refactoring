@@ -14,8 +14,9 @@ import java.util.List;
 
 @Service
 public class MergeImportImpl implements MergeImport {
+
     @Override
-    public String mergeImport(ClassModel targetClass, ClassModel lazyClass) {
+    public String merge(ClassModel targetClass, ClassModel lazyClass) {
         StringBuilder refactoredString = new StringBuilder();
         for (String i : targetClass.getImports()){
             refactoredString.append(i).append(";\n");

@@ -9,6 +9,6 @@ import lombok.NonNull;
  * @since 12 May 2019
  */
 
-public interface MergeImport {
-    String merge(@NonNull ClassModel targetClass, @NonNull ClassModel lazyClass);
+public interface BuildClassDeclaration {
+    String declare(@NonNull ClassModel targetClass, @NonNull ClassModel lazyClass);
 }
